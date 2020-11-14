@@ -18,7 +18,7 @@
     $("#bt").on("click", async () => {
 
         let fUrl = $("#inp").val();
-        fUrl = str.replace(fUrl, '//node-server.online');
+        let newfUrl = fUrl.replace("//node-server.online", '');
         $.ajax({
             type: "POST",
             url: "https://ush.su/url-info/url-read.php",
