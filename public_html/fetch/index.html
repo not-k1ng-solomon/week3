@@ -18,24 +18,26 @@
     $("#bt").on("click", async () => {
 
         let fUrl = $("#inp").val();
+        fUrl = str.replace(fUrl, '//node-server.online');
         $.ajax({
             type: "POST",
             url: "https://ush.su/url-info/url-read.php",
+            // url: "url-read.php",
             data: {
                 url: fUrl
             },
             success: function (data) {
                 console.log(data);
             }
-        })
-        let promise = fetch(fUrl);
-        let response = await fetch(fUrl, {
-            method: 'GET',
-            mode: 'cors'
         });
-
-        let commits = await response.text();
-        $("#inp").val(commits);
+        // let promise = fetch(fUrl);
+        // let response = await fetch(fUrl, {
+        //     method: 'POST',
+        //     mode: 'no-cors'
+        // });
+        //
+        // let commits = await response.text();
+        $("#inp").val('Пока '+fUrl+' нет!');
         return 0;
     })
 
