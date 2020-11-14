@@ -15,12 +15,21 @@
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
         crossorigin="anonymous"></script>
 <script>
-    $("#bt").on("click",async ()=>{
+    $("#bt").on("click", async () => {
 
         let fUrl = $("#inp").val();
-        console.log(fUrl);
+        $.ajax({
+            type: "POST",
+            url: "url-read.php",
+            data: {
+                url: fUrl
+            },
+            success: function (data) {
+                console.log(data);
+            }
+        })
         // let promise = fetch(fUrl);
-        let response = await fetch(fUrl,{
+        let response = await fetch(fUrl, {
             method: 'POST',
             mode: 'no-cors'
         });
