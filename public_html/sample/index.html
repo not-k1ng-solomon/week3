@@ -1,0 +1,12 @@
+function task(x) {
+var pr = new Promise((resorve, reject) => {
+if (x < 18) {
+resorve("yes");
+} else {
+var reason = new Error("no");
+reject(reason);
+}
+});
+return pr;
+}
+
