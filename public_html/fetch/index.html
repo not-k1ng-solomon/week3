@@ -18,17 +18,17 @@
     $("#bt").on("click", async () => {
 
         let fUrl = $("#inp").val();
-        // $.ajax({
-        //     type: "POST",
-        //     url: "https://ush.su/url-info/url-read.php",
-        //     data: {
-        //         url: fUrl
-        //     },
-        //     success: function (data) {
-        //         console.log(data);
-        //     }
-        // })
-        // let promise = fetch(fUrl);
+        $.ajax({
+            type: "POST",
+            url: "https://ush.su/url-info/url-read.php",
+            data: {
+                url: fUrl
+            },
+            success: function (data) {
+                console.log(data);
+            }
+        })
+        let promise = fetch(fUrl);
         let response = await fetch(fUrl, {
             method: 'GET',
             mode: 'cors'
